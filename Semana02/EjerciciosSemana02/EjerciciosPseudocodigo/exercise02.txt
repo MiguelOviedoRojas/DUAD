@@ -1,0 +1,56 @@
+/*2. Dada `n` cantidad de notas de un estudiante, calcular:
+    1. Cuantas notas tiene aprobadas (mayor o igual a 70).
+    2. Cuantas notas tiene desaprobadas (menor a 70).
+    3. El promedio de todas.
+    4. El promedio de las aprobadas.
+    5. El promedio de las desaprobadas.*/
+
+
+Inicio
+Definir cantidad_notas
+Definir contador
+Definir not a
+Definir cantidad_aprobadas
+Definir cantidad_desaprobadas
+Definir promedio_total
+Definir promedio_aprobadas
+Definir promedio_desaprobadas
+
+Mostrar "Ingrese la cantidad de notas"
+Pedir cantidad_notas -> 3
+
+contador = 1 2 3 4
+cantidad_aprobadas = 0 -> 2
+cantidad_desaprobadas = 0 -> 1
+promedio_total = 0 -> 70 50 100 = 220
+promedio_aprobadas = 0 -> 70 100 = 170
+promedio_desaprobadas = 0 -> 50
+
+    Mientras (contador <= cantidad_notas) hacer:
+        Mostrar "Ingrese la nota número"
+        Mostrar contador
+        Pedir nota
+            Si(nota >= 70) entonces:
+                cantidad_aprobadas = cantidad_aprobadas + 1
+                promedio_aprobadas = promedio_aprobadas + nota
+            Sino
+                cantidad_desaprobadas = cantidad_desaprobadas + 1
+                promedio_desaprobadas = promedio_desaprobadas + nota
+            FinSi
+        promedio_total = promedio_total + nota
+        contador = contador + 1
+    FinMientras
+    promedio_total = promedio_total / cantidad_notas
+    promedio_aprobadas = promedio_aprobadas / cantidad_aprobadas
+    promedio_desaprobadas = promedio_desaprobadas / cantidad_desaprobadas
+Mostrar "Su cantidad de notas aprobadas es:"
+Mostrar cantidad_aprobadas
+Mostrar "Su cantidad de notas desaprobadas es:"
+Mostrar cantidad_desaprobadas
+Mostrar "Su promedio total es:"
+Mostrar promedio_total
+Mostrar "Su promedio de aprobadas es:"
+Mostrar promedio_aprobadas
+Mostrar "Su promedio de desaprobadas es:"
+Mostrar promedio_desaprobadas
+Fin

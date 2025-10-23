@@ -109,10 +109,46 @@ def general_average(dictionary):
     counter = 0
     try:
         for user in dictionary:
+            #import_average = int(user.get('average'))
+            #print(f"Import Average: {import_average}")
             actual_average += user.get('average')
+            #actual_average += import_average
             counter += 1
         general_average = actual_average / counter
         return(general_average)
     except ZeroDivisionError as ex:
         print(f"Cannot Divide by Zero: {ex}")
         return 0
+
+        
+def search_student(list_of_students):
+    student_name = str(input("Insert name of student: ").upper())
+    student_section = str(input("Insert student section: ").upper())
+
+    for student in list_of_students:
+        if student_name == student["name"].upper() and student_section == student["section"].upper():
+            user_response = user_confirmation()
+            if user_response == True:
+                list_of_students.remove(student)
+                return(list_of_students)
+            else:
+                return(list_of_students)
+
+
+def user_confirmation():
+    user_selection = str(input("Do you want delete user YES or NO: ").upper())
+    if user_selection == "YES":
+        print("Selection is YES")
+        return(True)
+    else:
+        print("Selection is NO")
+        return(False)
+
+
+
+'''
+    dictionary = [{'name': 'Migue', 'section': '11a', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 34.5},
+            {'name': 'Magaly', 'section': '11b', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 55},
+            {'name': 'Yamileth', 'section': '11a', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 80.5},
+            {'name': 'Evelyn', 'section': '11c', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 65},]
+'''

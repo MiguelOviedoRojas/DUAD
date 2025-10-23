@@ -41,7 +41,11 @@ def convert_csv_file_to_list(file_path):
         with open(file_path, "r", encoding="utf-8") as csv_file:
             reader = csv.DictReader(csv_file)
             for row in reader:
-                list_of_students.append(row)
+                for key, value in row.items():
+                    if key != "name" and key != "section":
+                        row[key] = float(value)
+                    #list_of_students.append(row)
+            list_of_students.append(row)        
             return(list_of_students)
     except FileNotFoundError as ex:
         print(ex)

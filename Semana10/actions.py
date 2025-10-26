@@ -143,17 +143,81 @@ def user_confirmation():
         if user_selection == "YES":
             print("Selection is YES")
             return(True)
-        else:
+        elif user_selection == "NO":
             print("Selection is NO")
             return(False)
+        else:
+            print("Select a Valid Option")
     except ValueError as ex:
         return ex
+    
+def search_students_failed(list_of_students):
+    if not list_of_students:
+        print("List Empty")
+        return list_of_students
+    else:
+        list_of_students_failed = []
+        for student in list_of_students:
+            dictionary = {}
+            spanish_grade = 0
+            english_grade = 0
+            social_grade = 0
+            science_grade = 0
+            for key,value in student.items():
+                if key != 'name' and key != 'section' and key != 'average':
+                    if student[key] < 70:
+                        dictionary["name"] = student["name"]
+                        dictionary["section"] = student["section"]
+                        if key == "spanish":
+                            spanish_grade = student[key]
+                            dictionary["spanish"] = spanish_grade
+                        elif key == "english":
+                            english_grade = student[key]
+                            dictionary["english"] = english_grade
+                        elif key == "social":
+                            social_grade = student[key]
+                            dictionary["social"] = social_grade
+                        else:
+                            science_grade = student[key]
+                            dictionary["science"] = science_grade
+            list_of_students_failed.append(dictionary)
+        print(list_of_students_failed)
 
 
 
 '''
-    dictionary = [{'name': 'Migue', 'section': '11a', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 34.5},
-            {'name': 'Magaly', 'section': '11b', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 55},
-            {'name': 'Yamileth', 'section': '11a', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 80.5},
-            {'name': 'Evelyn', 'section': '11c', 'spanish': 20.0, 'english': 25.0, 'social': 30.0, 'science': 35.0, 'average': 65},]
+list_of_students = [{'name': 'Migue', 'section': '11a', 'spanish':70.0, 'english': 85.0, 'social': 30.0, 'science': 75.0, 'average': 34.5},
+        {'name': 'Magaly', 'section': '11b', 'spanish': 20.0, 'english': 85.0, 'social': 90.0, 'science': 35.0, 'average': 55},
+        {'name': 'Yamileth', 'section': '11a', 'spanish': 90.0, 'english': 25.0, 'social': 70.0, 'science': 95.0, 'average': 80.5},
+        {'name': 'Evelyn', 'section': '11c', 'spanish': 80.0, 'english': 75.0, 'social': 80.0, 'science': 35.0, 'average': 65},]
+
+
+list_of_students_failed = []
+for student in list_of_students:
+    dictionary = {}
+    spanish_grade = 0
+    english_grade = 0
+    social_grade = 0
+    science_grade = 0
+    for key,value in student.items():
+        if key != "name" and key != "section" and key != "average":
+            if student[key] < 70:
+                dictionary["name"] = student["name"]
+                dictionary["section"] = student["section"]
+                if key == "spanish":
+                    spanish_grade = student[key]
+                    dictionary["spanish"] = spanish_grade
+                elif key == "english":
+                    english_grade = student[key]
+                    dictionary["english"] = english_grade
+                elif key == "social":
+                    social_grade = student[key]
+                    dictionary["social"] = social_grade
+                else:
+                    science_grade = student[key]
+                    dictionary["science"] = science_grade
+    if dictionary:
+        list_of_students_failed.append(dictionary)
+print(list_of_students_failed)
 '''
+

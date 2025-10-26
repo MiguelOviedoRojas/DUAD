@@ -1,4 +1,4 @@
-from menu import user_selection, option_menu
+from menu import option_menu
 
 
 def main():

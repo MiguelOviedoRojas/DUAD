@@ -1,4 +1,4 @@
-from actions import insert_new_student, print_all_students, top_three_best_students, general_average, search_student
+from actions import insert_new_student, print_all_students, top_three_best_students, general_average, search_student, search_students_failed
 from data import take_headers_of_list, search_csv_file
 
 
@@ -20,14 +20,16 @@ def option_menu():
             student_list = search_csv_file()
         elif user_select == 7:
             search_student(student_list)
+        elif user_select == 8:
+            search_students_failed(student_list)
 
 
 def user_selection():
     go_on = True
     while go_on:
         try:
-            user_select = int(input("Select an Option\n1-Add Students                 2-View Student Information      3-Top Best 3 Student\n4-View Average All Studens     5-Export Data                   6-Import Data\n7-Delete User\n"))
-            if user_select < 1 or user_select > 7:
+            user_select = int(input("Select an Option\n1-Add Students                 2-View Student Information      3-Top Best 3 Student\n4-View Average All Students    5-Export Data                   6-Import Data\n7-Delete User                  8-Search Fail Students\n"))
+            if user_select < 1 or user_select > 8:
                 print("Select a Valid Option")
             else:
                 go_on = False

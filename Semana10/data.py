@@ -10,7 +10,7 @@ def take_headers_of_list(list_of_students):
             list_of_headers = list(list_of_students[0].keys())
             write_csv_file(list_of_headers,list_of_students)
     except TypeError as ex:
-        return(ex)
+        return ex
 
 
 def write_csv_file(list_of_headers, list_of_students):
@@ -23,7 +23,7 @@ def write_csv_file(list_of_headers, list_of_students):
             print("File Write Successful")
             return list_of_students
     except FileNotFoundError as ex:
-        return(ex)
+        return ex
 
 
 def search_csv_file():
@@ -32,7 +32,7 @@ def search_csv_file():
     if not os.path.isfile(file_path):
         print(f"File doesn't exist in this Path: {file_path}")
     else:
-        return(convert_csv_file_to_list(file_path))
+        return convert_csv_file_to_list(file_path)
 
 
 def convert_csv_file_to_list(file_path):
@@ -44,9 +44,8 @@ def convert_csv_file_to_list(file_path):
                 for key, value in row.items():
                     if key != "name" and key != "section":
                         row[key] = float(value)
-                    #list_of_students.append(row)
             list_of_students.append(row)        
-            return(list_of_students)
+            return list_of_students
     except FileNotFoundError as ex:
         print(ex)
 

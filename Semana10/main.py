@@ -1,9 +1,8 @@
-from menu import user_selection
+from menu import user_selection, option_menu
 
 
 def main():
-    list_of_students = []
-    user_selection(list_of_students)
+    option_menu()
 
 
 main()

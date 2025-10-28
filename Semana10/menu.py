@@ -22,14 +22,16 @@ def option_menu():
             search_student(student_list)
         elif user_select == 8:
             search_students_failed(student_list)
+        else:
+            break
 
 
 def user_selection():
     go_on = True
     while go_on:
         try:
-            user_select = int(input("Select an Option\n1-Add Students                 2-View Student Information      3-Top Best 3 Student\n4-View Average All Students    5-Export Data                   6-Import Data\n7-Delete User                  8-Search Fail Students\n"))
-            if user_select < 1 or user_select > 8:
+            user_select = int(input("Select an Option\n1-Add Students                 2-View Student Information      3-Top Best 3 Student\n4-View Average All Students    5-Export Data                   6-Import Data\n7-Delete User                  8-Search Fail Students          9-Exit\n"))
+            if user_select < 1 or user_select > 9:
                 print("Select a Valid Option")
             else:
                 go_on = False

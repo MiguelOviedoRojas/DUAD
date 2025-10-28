@@ -1,8 +1,11 @@
 
 def insert_new_student(list_of_students):
     while True:
-        student_name = str(input("Insert Student Name: "))
-        student_section = str(input("Insert Student Section: "))
+        student_name = is_valid_name()
+        student_section = is_valid_section()
+        status_of_student = student_exist(list_of_students,student_name, student_section)
+        if status_of_student == 0:
+            break
         spanish_grade = insert_new_grade("Spanish")
         english_grade = insert_new_grade("English")
         social_grade = insert_new_grade("Social")
@@ -14,6 +17,66 @@ def insert_new_student(list_of_students):
         if go_on == 2:
             break
     return list_of_students
+
+
+def is_valid_name():
+    go_on = True
+    while go_on:
+        student_name = str(input("Insert Student Name: "))
+        try:
+            if not student_name:
+                print("Name Empty")
+            else:  
+                for index in range(len(student_name)):
+                    if student_name[index].isalpha() or student_name[index] == " ":
+                        go_on = False
+                    else:
+                        print(f"Insert a Valid Name Please")
+                        go_on = True
+        except ValueError as ex:
+            return ex
+    return student_name
+
+
+def is_valid_section():
+    go_on = True
+    while go_on:
+        student_section = str(input("Insert Student Section: "))
+        try:
+            if not student_section:
+                print("Section Empty")
+            else:
+                for index in range(len(student_section)):
+                    if index == 0 or index == 1:
+                        if student_section[index].isdigit():
+                            continue
+                        else:
+                            print("Section Invalid")
+                            go_on = True
+                    elif index == 2:
+                        if student_section[index].upper() == "A" or student_section[index].upper() == "B" or student_section[index].upper() == "C":
+                            go_on = False
+                        else:
+                            print("Section Invalid")
+                            go_on = True
+            return student_section
+        except ValueError as ex:
+            return ex
+
+
+def student_exist(list_of_students,student_name,student_section):
+    flag = False
+    if not list_of_students:
+        print("Empty List, continue Please")
+        return 1
+    else:
+        for student in list_of_students:
+            if student["name"].upper() == student_name.upper() and student["section"].upper() == student_section.upper():
+                print(f"Student {student_name.title()} Exist in {student_section.upper()}")
+                return 0
+        if not flag:
+            print(f"Student Doesn't Exist, continue Please")
+            return 1
 
 
 def insert_new_grade(grade_name):
@@ -150,7 +213,8 @@ def user_confirmation():
             print("Select a Valid Option")
     except ValueError as ex:
         return ex
-    
+
+
 def search_students_failed(list_of_students):
     if not list_of_students:
         print("List Empty")
@@ -180,44 +244,15 @@ def search_students_failed(list_of_students):
                         else:
                             science_grade = student[key]
                             dictionary["science"] = science_grade
-            list_of_students_failed.append(dictionary)
-        print(list_of_students_failed)
+            if dictionary:
+                list_of_students_failed.append(dictionary)
+        return print_failed_student(list_of_students_failed)
 
 
-
-'''
-list_of_students = [{'name': 'Migue', 'section': '11a', 'spanish':70.0, 'english': 85.0, 'social': 30.0, 'science': 75.0, 'average': 34.5},
-        {'name': 'Magaly', 'section': '11b', 'spanish': 20.0, 'english': 85.0, 'social': 90.0, 'science': 35.0, 'average': 55},
-        {'name': 'Yamileth', 'section': '11a', 'spanish': 90.0, 'english': 25.0, 'social': 70.0, 'science': 95.0, 'average': 80.5},
-        {'name': 'Evelyn', 'section': '11c', 'spanish': 80.0, 'english': 75.0, 'social': 80.0, 'science': 35.0, 'average': 65},]
-
-
-list_of_students_failed = []
-for student in list_of_students:
-    dictionary = {}
-    spanish_grade = 0
-    english_grade = 0
-    social_grade = 0
-    science_grade = 0
-    for key,value in student.items():
-        if key != "name" and key != "section" and key != "average":
-            if student[key] < 70:
-                dictionary["name"] = student["name"]
-                dictionary["section"] = student["section"]
-                if key == "spanish":
-                    spanish_grade = student[key]
-                    dictionary["spanish"] = spanish_grade
-                elif key == "english":
-                    english_grade = student[key]
-                    dictionary["english"] = english_grade
-                elif key == "social":
-                    social_grade = student[key]
-                    dictionary["social"] = social_grade
-                else:
-                    science_grade = student[key]
-                    dictionary["science"] = science_grade
-    if dictionary:
-        list_of_students_failed.append(dictionary)
-print(list_of_students_failed)
-'''
+def print_failed_student(list_of_students_failed):
+    print("*****Students Failed Grades*****")
+    for student in list_of_students_failed:
+        for key,value in student.items():
+            print(f"{key.title()}: {student[key]}")
+        print("\n")
 

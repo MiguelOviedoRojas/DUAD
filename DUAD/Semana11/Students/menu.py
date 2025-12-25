@@ -38,7 +38,3 @@ def user_selection():
                 return user_select
         except ValueError as ex:
             print(f"You must select a number from the list: {ex}")
-
-
-
-

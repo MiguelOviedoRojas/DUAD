@@ -1,85 +1,8 @@
 from data import take_headers_of_list
-
-class Student():
-    def __init__(self, name, section, spanish_grade, english_grade, social_grade, science_grade, student_average):
-        self.name = name
-        self.section = section
-        self.spanish_grade = spanish_grade
-        self.english_grade = english_grade
-        self.social_grade = social_grade
-        self.science_grade = science_grade
-        self.student_average = student_average
-
-    
-    def print_info(self):
-        print(f"Name: {self.name}\n"
-                    f" Section: {self.section}\n"
-                    f" Spanish Grade: {self.spanish_grade}\n"
-                    f" English: {self.english_grade}\n"
-                    f" Social: {self.social_grade}\n"
-                    f" Science: {self.science_grade}\n"
-                    f" Average: {self.student_average}\n"
-        )
-
-    
-    def convert_object_list_in_dictionary_list(self):
-        dictionary = {}
-        dictionary["Name"] = self.name
-        dictionary["Section"] = self.section
-        dictionary["Spanish Grade"] = self.spanish_grade
-        dictionary["English Grade"] = self.english_grade
-        dictionary["Social Grade"] = self.social_grade
-        dictionary["Science Grade"] = self.science_grade
-        dictionary["Average"] = self.student_average
-        return dictionary
+from student import Student
 
 
-    def print_top_three(self):
-        print(f"Name: {self.name}\n"
-                    f" Section: {self.section}\n"
-                    f" Average: {self.student_average}\n"
-        )
-
-
-    def search_student(self,student_name,student_section):
-        if self.name.upper() == student_name.upper() and self.section.upper() == student_section.upper():
-            print(f"Student {self.name}, Exist in {self.section}")
-            return 0
-
-
-def convert_object_to_list(list_of_students):
-    dictionary_list_of_students = []
-    if not list_of_students:
-        print("Empty List")
-        return list_of_students
-    for student in list_of_students:
-            dictionary_student = student.convert_object_list_in_dictionary_list()
-            dictionary_list_of_students.append(dictionary_student)
-    take_headers_of_list(dictionary_list_of_students)
-    
-
-def search_students_failed(list_of_students):
-    if not list_of_students:
-        print("List Empty")
-        return list_of_students
-    else:
-        list_of_students_failed = []
-        for student in list_of_students:
-            dictionary = {}
-            if student.spanish_grade < 70:
-                dictionary["spanish"] = student.spanish_grade
-            if student.english_grade < 70:
-                dictionary["english"] = student.english_grade
-            if student.social_grade < 70:
-                dictionary["social"] = student.social_grade
-            if student.science_grade < 70:
-                dictionary["science"] = student.science_grade
-            if dictionary:
-                dictionary["name"] = student.name
-                list_of_students_failed.append(dictionary)
-        return print_failed_student(list_of_students_failed)
-
-
+'''function create a new object student and ask if user want to continue add more students objects'''
 def create_new_student(list_of_students):
     while True:
         student_name = is_valid_name()
@@ -98,85 +21,6 @@ def create_new_student(list_of_students):
         if go_on == 2:
             break
     return list_of_students
-
-
-def print_failed_student(list_of_students_failed):
-    print("*****Students Failed Grades*****")
-    for student in list_of_students_failed:
-        for key,value in student.items():
-            print(f"{key.title()}: {student[key]}")
-        print("\n")
-
-
-def general_average(list_of_student_objects):
-    actual_average = 0
-    counter = 0
-    try:
-        for student in list_of_student_objects:
-            actual_average += student.student_average
-            counter += 1
-        general_average = actual_average / counter
-        return general_average
-    except ZeroDivisionError as ex:
-        print(f"Cannot Divide by Zero: {ex}")
-        return 0
-
-
-def top_three_best_students(list_of_student_object):
-    first = None
-    second = None
-    third = None
-    if not list_of_student_object:
-        print("Empty List")
-    else:
-        for student in list_of_student_object:
-            if first == None:
-                first = student
-            elif student.student_average > first.student_average:
-                third = second
-                second = first
-                first = student
-            elif second == None:
-                second == student
-            elif student.student_average > second.student_average:
-                third = second
-                second = student
-            elif third == None:
-                third = student
-            elif student.student_average > third.student_average:
-                third = student
-        best_students = [first, second, third]
-        print_top_three_students_objects(best_students)
-
-
-def print_top_three_students_objects(students_list):
-        if not students_list:
-            print("Empty List")
-            return students_list
-        for student in students_list:
-                student.print_top_three()
-
-
-def student_exist(list_of_students,student_name,student_section):
-    flag = False
-    if not list_of_students:
-        print("Empty List, continue Please")
-        return 1
-    else:
-        for student in list_of_students:
-            if student.search_student(student_name,student_section) == 0:
-                return 0
-        if not flag:
-            print(f"Student Doesn't Exist, continue Please")
-            return 1
-
-
-def print_all_students_objects(students_list):
-        if not students_list:
-            print("Empty List")
-            return students_list
-        for student in students_list:
-                student.print_info()
 
 
 def is_valid_name():
@@ -224,6 +68,20 @@ def is_valid_section():
             return ex
 
 
+def student_exist(list_of_students,student_name,student_section):
+    flag = False
+    if not list_of_students:
+        print("Empty List, continue Please")
+        return 1
+    else:
+        for student in list_of_students:
+            if student.search_student(student_name,student_section) == 0:
+                return 0
+        if not flag:
+            print(f"Student Doesn't Exist, continue Please")
+            return 1
+
+
 def insert_new_grade(grade_name):
     grade = -1
     while grade < 0 or grade > 100:
@@ -251,6 +109,74 @@ def user_add_another_student(user_selection):
             user_selection == 0
             print(f"Select a Valid Option {ex}")
     return user_selection
+
+
+def print_all_students_objects(students_list):
+        if not students_list:
+            print("Empty List")
+            return students_list
+        for student in students_list:
+                student.print_info()
+
+
+def top_three_best_students(list_of_student_object):
+    first = None
+    second = None
+    third = None
+    if not list_of_student_object:
+        print("Empty List")
+    else:
+        for student in list_of_student_object:
+            if first == None:
+                first = student
+            elif student.student_average > first.student_average:
+                third = second
+                second = first
+                first = student
+            elif second == None:
+                second == student
+            elif student.student_average > second.student_average:
+                third = second
+                second = student
+            elif third == None:
+                third = student
+            elif student.student_average > third.student_average:
+                third = student
+        best_students = [first, second, third]
+        print_top_three_students_objects(best_students)
+
+
+def print_top_three_students_objects(students_list):
+        if not students_list:
+            print("Empty List")
+            return students_list
+        for student in students_list:
+                student.print_top_three()
+
+
+def general_average(list_of_student_objects):
+    actual_average = 0
+    counter = 0
+    try:
+        for student in list_of_student_objects:
+            actual_average += student.student_average
+            counter += 1
+        general_average = actual_average / counter
+        return general_average
+    except ZeroDivisionError as ex:
+        print(f"Cannot Divide by Zero: {ex}")
+        return 0
+
+
+def convert_object_to_list(list_of_students):
+    dictionary_list_of_students = []
+    if not list_of_students:
+        print("Empty List")
+        return list_of_students
+    for student in list_of_students:
+            dictionary_student = student.convert_object_list_in_dictionary_list()
+            dictionary_list_of_students.append(dictionary_student)
+    take_headers_of_list(dictionary_list_of_students)
 
 
 def search_student(list_of_students):
@@ -285,19 +211,31 @@ def user_confirmation():
         return ex
 
 
+def search_students_failed(list_of_students):
+    if not list_of_students:
+        print("List Empty")
+        return list_of_students
+    else:
+        list_of_students_failed = []
+        for student in list_of_students:
+            dictionary = {}
+            if student.spanish_grade < 70:
+                dictionary["spanish"] = student.spanish_grade
+            if student.english_grade < 70:
+                dictionary["english"] = student.english_grade
+            if student.social_grade < 70:
+                dictionary["social"] = student.social_grade
+            if student.science_grade < 70:
+                dictionary["science"] = student.science_grade
+            if dictionary:
+                dictionary["name"] = student.name
+                list_of_students_failed.append(dictionary)
+        return print_failed_student(list_of_students_failed)
 
 
-
-
-'''def add_student_of_dictionary(student_name,student_section,spanish_grade,english_grade,social_grade,science_grade,student_average):
-    dictionary_student = {}
-    dictionary_student["name"] = student_name
-    dictionary_student["section"] = student_section
-    dictionary_student["spanish"] = spanish_grade
-    dictionary_student["english"] = english_grade
-    dictionary_student["social"] = social_grade
-    dictionary_student["science"] = science_grade
-    dictionary_student["average"] = student_average
-    return dictionary_student'''
-
-
+def print_failed_student(list_of_students_failed):
+    print("*****Students Failed Grades*****")
+    for student in list_of_students_failed:
+        for key,value in student.items():
+            print(f"{key.title()}: {student[key]}")
+        print("\n")

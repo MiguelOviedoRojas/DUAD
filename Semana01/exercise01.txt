@@ -1,0 +1,207 @@
+1- Cree un algoritmo para ver un video en Youtube. Sea lo más especifico posible.
+
+1. Inicio
+2. Tener Conexión a Internet y Electricidad
+    1. Si, tengo PC
+        1. Abrir el navegador
+        2. Ingresar a YouTube
+    2. Sino,
+        1. Conseguir un Dispositivo
+3. Buscar el Video
+4. Reproducir el Video
+5. Fin
+
+
+2- Cree un algoritmo que describa su rutina diaria. Use condiciones, condiciones múltiples y ciclos.
+
+1. Inicio
+2. Despertarme
+    1. Si, suena la alarma
+        1. Mientras, suena la alarma
+            1. Tomar el celular
+            2. Desactivar la alarma
+    2. Sino,
+        1. Tomar el celular
+        2. Desactivar la alarma
+3. Levantarme
+    1. Si, estoy cobijado
+        1. quitarme la cobija
+    2. Sino,
+        1. Buscar la cobija
+    3. Sentarme en la cama
+    4. Ponerme las sandalias
+    5. Ponerme de pie
+4. Acomodar la Cama
+    1. Por, cada cobija
+        1. tomar la cobija
+        2. doblar la cobija
+        3. guardar la cobija
+    2. acomodar la almohada
+    3. acomodarla colcha
+5. Acomodar la cama del perro
+    1. Si, el perro esta en la cama
+        1. Levantar al perro
+    2. Sino,
+        1. Doblar la cobija del perro
+        2. Guardar la cobija del perro
+    3. Poner la cama del perro en la sala
+6. Bañarme
+    1. Abrir la puerta del baño
+    2. Ingresar al baño
+    3. Cerrar las puertas
+    4. Abrir la ducha
+        1. Mientras, que la ducha este abierta
+            1. tomar la esponja de baño
+            2. colocar jabón
+            3. enjabonar el cuerpo
+                1. Mientras, el cuerpo tiene jabón
+                    1. Echarse agua
+        2. Cerrar la Ducha
+        3. Tomar la toalla de baño
+            1. Mientras, el cuerpo este mojado
+            2. Secar el cuerpo con la toalla
+        4. Tender la toalla
+        5. Salir del baño
+7. Mudarme
+    1. Si, closet esta abierto
+        1. Tomar la ropa
+    2. Sino,
+        1. Abrir el closet
+        2. tomar la ropa
+    3. Colocar la ropa
+    4. Cerrar el closet
+8. Desayuno del perro
+    1. Tomar la taza del perro
+    2. Coger el alimento
+        1. Si, la bolsa esta abierta
+            1. tomar el alimento con la taza
+        2. Sino,
+            1. abrir la bolsa
+            2. tomar el alimento con la taza
+    3. Cerrar la bolsa
+    4. Colocar el alimento en la taza del perro
+    5. Colocar agua en la taza del perro
+9. Desayunar
+    1. Corroborar que hay desayuno cocinado
+        1. Si, desayuno esta cocinado
+            1. alistar desayuno en los trastes
+        2. Sino,
+            1. Preparar el desayuno
+    2. Calentar el desayuno
+    3. Comer el desayuno
+10. Lavar los trastes
+    1. Tomar los trastes de la mesa
+    2. Colocar los trastes en el fregadero
+    3. Mientras, que los trastes estén sucios
+        1. Abrir el tubo de agua
+        2. Tomar la esponja
+        3. Colocar jabón
+        4. Restregar los trastes
+    4. Cerrar el tubo de agua
+11. Lavar los dientes
+    1. Abrir el tubo de agua
+    2. Mientras, que los dientes estén sucios
+        1. Tomar el cepillo de dientes
+        2. Colocar pasta de dientes
+        3. Limpiar la boca
+    3. Cerrar el tubo de agua
+12. Trabajar
+    1. Ir a la oficina
+        1. Si, la PC esta encendida
+            1. Iniciar sesión
+        2. Sino,
+            1. Encender PC
+            2. Iniciar sesión
+    2. Trabajar
+13. Almorzar
+    1. Corroborar que hay almuerzo cocinado
+        1. Si, almuerzo esta cocinado
+            1. alistar almuerzo en los trastes
+        2. Sino,
+            1. Preparar el almuerzo
+    2. Calentar el almuerzo
+    3. Comer el almuerzo
+14. Lavar los trastes
+    1. Tomar los trastes de la mesa
+    2. Colocar los trastes en el fregadero
+    3. Mientras, que los trastes estén sucios
+        1. Abrir el tubo de agua
+        2. Tomar la esponja
+        3. Colocar jabón
+        4. Restregar los trastes
+    4. Cerrar el tubo de agua
+15. Lavar los dientes
+    1. Abrir el tubo de agua
+    2. Mientras, que los dientes estén sucios
+        1. Tomar el cepillo de dientes
+        2. Colocar pasta de dientes
+        3. Limpiar la boca
+    3. Cerrar el tubo de agua
+16. Trabajar
+    1. Ir a la oficina
+        1. Si, la PC esta encendida
+            1. Iniciar sesión
+        2. Sino,
+            1. Encender PC
+            2. Iniciar sesión
+    2. Trabajar
+17. Hacer merienda de la tarde (Café)
+    1. Corroborar que hay café hecho
+        1. Si, café esta hecho
+            1. alistar café en los trastes
+        2. Sino,
+            1. Preparar el café
+    2. Calentar el café
+    3. Comer el café
+18. Lavar los trastes
+    1. Tomar los trastes de la mesa
+    2. Colocar los trastes en el fregadero
+    3. Mientras, que los trastes estén sucios
+        1. Abrir el tubo de agua
+        2. Tomar la esponja
+        3. Colocar jabón
+        4. Restregar los trastes
+    4. Cerrar el tubo de agua
+19. Lavar los dientes
+    1. Abrir el tubo de agua
+    2. Mientras, que los dientes estén sucios
+        1. Tomar el cepillo de dientes
+        2. Colocar pasta de dientes
+        3. Limpiar la boca
+    3. Cerrar el tubo de agua
+20. Cenar
+    1. Corroborar que hay cena cocinada
+        1. Si, cena esta cocinada
+            1. alistar cena en los trastes
+        2. Sino,
+            1. Preparar el cena
+    2. Calentar el cena
+    3. Comer el cena
+21. Estudiar
+    1. Ir a la oficina
+        1. Si, la PC esta encendida
+            1. Iniciar sesión
+        2. Sino,
+            1. Encender PC
+            2. Iniciar sesión
+    2. Estudiar
+22. Ver TV
+    1. Caminar hacia la sala de TV
+    2. Sentarme en el sillón
+        1. Si, tengo TV
+            1. Encender el TV
+        2. Sino, si tengo Celular o tablet
+            1. Encender el dispositivo
+        3. Sino,
+            1. Pedir dispositivo prestado
+    3. Elegir el programa
+    4. Reproducir
+    5. Apagar el dispositivo
+23. Acostarme
+    1. Caminar hacia el cuarto
+    2. Acomodar la colcha
+    3. Por, cada cobija
+        1. tomar la cobija
+        2. tender la cobija en la cama
+    4. Acostarme en la cama
+24. Fin

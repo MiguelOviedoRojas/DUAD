@@ -28,7 +28,7 @@ def write_csv_file(list_of_headers, list_of_students):
 
 
 def search_csv_file():
-    file_path = 'C:/Lyfter/DUAD/Semana11/students.csv'
+    file_path = 'C:/Lyfter/DUAD/Semana11/Students/students.csv'
     if not os.path.isfile(file_path):
         print(f"File doesn't exist in this Path: {file_path}")
     else:

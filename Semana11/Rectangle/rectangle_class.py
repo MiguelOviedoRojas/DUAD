@@ -1,27 +1,27 @@
 class Rectangle():
-    def __init__(self):
-        pass
+    def __init__(self, rect_width, rect_height):
+        self.width = rect_width
+        self.height = rect_height
     
-    def get_area(self, width, height):
-        self.width = width
-        self.height = height
+    
+    def get_area(self):
         rectangle_area = self.width * self.height
         try:
-            if rectangle_area < 0:
-                return f"{rectangle_area}, Exist a Negative Value, Please Insert Positives Values"
-            return rectangle_area
+            if self.width < 0 or self.height < 0:
+                raise ValueError("Exist a Negative Value, Please Insert Positives Values")
+            else:
+                return rectangle_area    
         except ValueError as ex:
             return ex
     
 
-    def get_perimeter(self, width, height):
-        self.width = width
-        self.height = height
+    def get_perimeter(self):
         rectangle_perimeter = 2 * (self.width + self.height)
         try:
             if self.width < 0 or self.height < 0:
-                return f"{rectangle_perimeter}, Exist a Negative Value, Please Insert Positives Values"
-            return rectangle_perimeter
+                raise ValueError("Exist a Negative Value, Please Insert Positives Values")
+            else:
+                return rectangle_perimeter
         except ValueError as ex:
             return ex
 

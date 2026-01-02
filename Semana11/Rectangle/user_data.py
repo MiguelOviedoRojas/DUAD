@@ -19,9 +19,7 @@ def insert_user_data():
         except ValueError as ex:
             go_height = True
             print(f"Incorrect Value, Please Insert a Valid Number: {ex}")
-        
-    rectangle = Rectangle()
-    print(f"Rectangle Area is: {rectangle.get_area(rectangle_width, rectangle_height)}")
-    print(f"Rectangle Perimeter is: {rectangle.get_perimeter(rectangle_width, rectangle_height)}")
-    
-    
+
+    rectangle = Rectangle(rectangle_width, rectangle_height)
+    print(f"Rectangle Area is: {rectangle.get_area()}")
+    print(f"Rectangle Perimeter is: {rectangle.get_perimeter()}")

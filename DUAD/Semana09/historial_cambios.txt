@@ -1,0 +1,13 @@
+Se han realizado 2 commits
+
+Primero: Commit inicial cuando se creo el repositorio y se clono localmente
+	Se indica el ID del commit
+	Autor: nombre y correo
+	Fecha
+	Comentario
+
+Segundo: Commit donde se agregan todos los ejercicios realizados en las semanas anteriores
+	Se indica el ID del commit
+	Autor: nombre y correo
+	Fecha
+	Comentario

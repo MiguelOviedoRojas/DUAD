@@ -1,3 +1,0 @@
-Mensaje de Prueba
-
-Se hace modificación de archivo para Rama: fix-errores-menores

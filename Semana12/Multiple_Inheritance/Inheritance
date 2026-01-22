@@ -1,0 +1,36 @@
+'''Investigue qué usos se le pueden dar a la herencia multiple y cree un ejemplo.
+
+Los usos de la herencia múltiple consisten en combinar características de diferentes clases en una clase hija, 
+lo que permite reutilizar código escrito en las clases padre y evitar la duplicación de código. Además, permite
+que una clase utilice atributos y métodos provenientes de distintas clases padre, facilitando la reutilización 
+y organización del código.
+
+Un ejemplo del mundo real es el pato, ya que este animal cuenta con muchas características que lo hacen diferente
+a otros animales que solo poseen una característica específica. En este caso, el pato puede heredar características 
+de clases como Nadar, Volar y Caminar, lo que lo diferencia de otros animales, por ejemplo los peces, que solo pueden nadar.'''
+
+class Walk():
+    def walking(self, animal):
+        self.animal = animal
+        print(f"Animal {self.animal} can Walking")
+
+class Swing():
+    def swimming(self, animal):
+        self.animal = animal
+        print(f"Animal {self.animal} can Swimming")
+
+class Fly():
+    def flying(self, animal):
+        self.animal = animal
+        print(f"Animal {self.animal} can Flying")
+
+
+class Duck(Walk, Swing, Fly):
+    pass
+
+
+duck = Duck()
+duck_animal = "Duck"
+duck.walking(duck_animal)
+duck.swimming(duck_animal)
+duck.flying(duck_animal)

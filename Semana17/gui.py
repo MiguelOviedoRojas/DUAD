@@ -1,5 +1,13 @@
 import FreeSimpleGUI as sg
 from datetime import date
+from persintence import save_categories, save_movements
+from validations import validate_required_fields, validate_amount
+
+
+def save_all(finance_manager):
+    save_categories(finance_manager)
+    save_movements(finance_manager)
+
 
 def run_gui(finance_manager):
     sg.theme("LightBlue")
@@ -49,6 +57,7 @@ def add_category_window(finance_manager):
                 sg.popup("Category already exists")
             else:
                 sg.popup("Category added successfully")
+                save_all(finance_manager)
                 break
     window.close()
 
@@ -74,17 +83,15 @@ def add_expense_window(finance_manager):
             title = values["-TITLE-"].strip().upper()
             amount_str = values["-AMOUNT-"].strip()
             category = values["-CATEGORY-"]
-            if not title or not amount_str or not category:
+            
+            if not validate_required_fields(title, amount_str, category):
                 sg.popup("All fields are required")
                 continue
-            try:
-                amount = float(amount_str)
-                if amount <= 0:
-                    sg.popup("Amount must be greater than 0")
-                    continue
-            except ValueError:
-                sg.popup("Amount must be a valid number")
+            amount = validate_amount(amount_str)
+            if amount is None:
+                sg.popup("Amount mut be a valid number greater than 0")
                 continue
+
             today = date.today()
             movement = finance_manager.add_movement(
                 title, amount, category, "EXPENSE", today
@@ -93,6 +100,7 @@ def add_expense_window(finance_manager):
                 sg.popup("Error adding expense")
             else:
                 sg.popup("Expense added successfully")
+                save_all(finance_manager)
                 break
     window.close()
 
@@ -118,17 +126,17 @@ def add_income_window(finance_manager):
             title = values["-TITLE-"].strip().upper()
             amount_str = values["-AMOUNT-"].strip()
             category = values["-CATEGORY-"]
-            if not title or not amount_str or not category:
+            
+            if not validate_required_fields(title, amount_str, category):
                 sg.popup("All fields are required")
                 continue
-            try:
-                amount = float(amount_str)
-                if amount <= 0:
-                    sg.popup("Amount must be greater than 0")
-                    continue
-            except ValueError:
-                sg.popup("Amount must be a valid number")
+
+            amount = validate_amount(amount_str)
+
+            if amount is None:
+                sg.popup("Invalid amount")
                 continue
+
             today = date.today()
             movement = finance_manager.add_movement(
                 title, amount, category, "INCOME", today
@@ -137,6 +145,7 @@ def add_income_window(finance_manager):
                 sg.popup("Error adding income")
             else:
                 sg.popup("Income added successfully")
+                save_all(finance_manager)
                 break
     window.close()
 

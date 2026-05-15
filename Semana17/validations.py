@@ -17,6 +17,27 @@ def valid_if_category_exist_in_category_list(category, category_list):
             break
     return flag
 
+def validate_required_fields(title, amount, category):
+    return bool(title) and bool(amount) and bool(category)
+
+
+def validate_amount(amount_str):
+    try:
+        amount = float(amount_str)
+        if amount <= 0:
+            return None
+        return amount
+    except ValueError:
+        return None
+
+
+
+
+
+
+
+
+
 
 '''def valid_input_insert_as_a_string(type_of_movement, input_str):
     go_on = True

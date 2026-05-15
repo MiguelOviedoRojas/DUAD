@@ -5,7 +5,7 @@ from movement_class import Movement
 
 
 def save_categories(finance_manager):
-    file_path = 'C:/Lyfter/DUAD/Semana17/categories.csv'
+    file_path = 'categories.csv'
     with open(file_path, "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerow(["name"])
@@ -14,7 +14,7 @@ def save_categories(finance_manager):
 
 
 def load_categories(finance_manager):
-    file_path = 'C:/Lyfter/DUAD/Semana17/categories.csv'
+    file_path = 'categories.csv'
     try:
         with open(file_path, "r", encoding="utf-8") as file:
             reader = csv.reader(file)
@@ -29,7 +29,7 @@ def load_categories(finance_manager):
 
 
 def load_movements(finance_manager):
-    file_path = 'C:/Lyfter/DUAD/Semana17/movements.csv'
+    file_path = 'movements.csv'
     try:
         with open(file_path, "r", encoding="utf-8") as file:
             reader = csv.reader(file)
@@ -59,7 +59,7 @@ def load_movements(finance_manager):
 
 
 def save_movements(finance_manager):
-    file_path = 'C:/Lyfter/DUAD/Semana17/movements.csv'
+    file_path = 'movements.csv'
     with open(file_path, "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerow(["title", "amount", "category", "type", "date"])

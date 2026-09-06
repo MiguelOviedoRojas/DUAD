@@ -48,44 +48,48 @@ INSERT INTO RENTS (ID, ID_BOOK, ID_CUSTOMER, STATE) VALUES
 (4, 3, 1, 'On time'),
 (5, 2, 2, 'Overdue');
 
-1- Obtenga todos los libros y sus autores (en caso de tenerlos)
-SELECT
-B.NAME AS BOOKS,
-A.NAME AS AUTHORS
-FROM BOOKS B
-INNER JOIN AUTHORS A ON B.ID_AUTHOR = A.ID;
 
-2- Obtenga todos los libros que no tienen autor
+--Querys
+
+--1- Obtenga todos los libros y sus autores (en caso de tenerlos)
+SELECT
+BOOKS.NAME AS BOOK_NAME,
+AUTHORS.NAME AS AUTHOR_NAME
+FROM BOOKS
+LEFT JOIN AUTHORS
+ON AUTHORS.ID = BOOKS.ID_AUTHOR;
+
+--2- Obtenga todos los libros que no tienen autor
 SELECT NAME FROM BOOKS WHERE ID_AUTHOR IS NULL;
 
-3- Obtenga todos los autores que no tienen libros
+--3- Obtenga todos los autores que no tienen libros
 SELECT AUTHORS.NAME
 FROM AUTHORS
 LEFT JOIN BOOKS
 ON AUTHORS.ID = BOOKS.ID_AUTHOR
 WHERE BOOKS.ID IS NULL;
 
-4- Obtenga todos los libros que han sido rentados en algún momento
-SELECT BOOKS.NAME
+--4- Obtenga todos los libros que han sido rentados en algún momento
+SELECT DISTINCT BOOKS.NAME
 FROM BOOKS
 INNER JOIN RENTS
 ON BOOKS.ID = RENTS.ID_BOOK;
 
-5- Obtenga todos los libros que nunca han sido rentados
+--5- Obtenga todos los libros que nunca han sido rentados
 SELECT BOOKS.NAME
 FROM BOOKS
 LEFT JOIN RENTS
 ON BOOKS.ID = RENTS.ID_BOOK
 WHERE RENTS.ID IS NULL;
 
-6- Obtenga todos los clientes que nunca han rentado un libro
+--6- Obtenga todos los clientes que nunca han rentado un libro
 SELECT CUSTOMERS.NAME
 FROM CUSTOMERS
 LEFT JOIN RENTS
 ON CUSTOMERS.ID = RENTS.ID_CUSTOMER
 WHERE RENTS.ID IS NULL;
 
-7- Obtenga todos los libros que han sido rentados y están en estado “Overdue”
+--7- Obtenga todos los libros que han sido rentados y están en estado “Overdue”
 SELECT DISTINCT BOOKS.NAME
 FROM BOOKS
 INNER JOIN RENTS
